@@ -1,14 +1,11 @@
 'use strict';
 
-module.exports.hello = async (event, context) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
-  };
+const db = require('./db');
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
-};
+module.exports = {
+  createBook: require('./src/createBook'),
+  getAllBook: require('./src/getAllBook'),
+  getBookbyId: require('./src/getBookbyId'),
+  updateBook: require('./src/updateBook'),
+  deleteBook: require('./src/deleteBook')
+}
